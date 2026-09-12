@@ -1,3 +1,4 @@
+
 package com.darvion.ecommerce.config;
 
 import org.springframework.context.annotation.Bean;
@@ -37,7 +38,7 @@ public class Securityconfig {
 
                 // Product APIs
                 .requestMatchers(HttpMethod.GET, "/api/products/**")
-                .hasAnyRole("USER", "ADMIN")
+                .permitAll()
 
                 .requestMatchers(HttpMethod.POST, "/api/products/**")
                 .hasRole("ADMIN")
@@ -47,7 +48,7 @@ public class Securityconfig {
 
                 // Category APIs
                 .requestMatchers(HttpMethod.GET, "/api/categories/**")
-                .hasAnyRole("USER", "ADMIN")
+                .permitAll()
 
                 .requestMatchers(HttpMethod.POST, "/api/categories/**")
                 .hasRole("ADMIN")
@@ -71,3 +72,4 @@ public class Securityconfig {
         return http.build();
     }
 }
+
