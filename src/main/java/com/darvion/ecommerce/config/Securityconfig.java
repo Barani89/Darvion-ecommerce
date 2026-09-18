@@ -51,8 +51,13 @@ public class Securityconfig {
                 .hasRole("ADMIN")
 
                 // Public Category APIs
-                .requestMatchers(HttpMethod.GET, "/api/categories/**")
-                .permitAll()
+                .requestMatchers(
+    "/api/users/register",
+    "/api/users/login",
+    "/api/products/**",
+    "/api/categories/**"
+).permitAll()
+.anyRequest().authenticated()
 
                 // Admin Category APIs
                 .requestMatchers(HttpMethod.POST, "/api/categories/**")
