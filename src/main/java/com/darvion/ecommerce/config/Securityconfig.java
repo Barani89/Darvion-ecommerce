@@ -30,26 +30,31 @@ public class Securityconfig {
 
             .authorizeHttpRequests(auth -> auth
 
+                // Public Home Page
+                .requestMatchers("/").permitAll()
+
                 // Register & Login
                 .requestMatchers(
                     "/api/users/register",
                     "/api/users/login"
                 ).permitAll()
 
-                // Product APIs
+                // Public Product APIs
                 .requestMatchers(HttpMethod.GET, "/api/products/**")
                 .permitAll()
 
+                // Admin Product APIs
                 .requestMatchers(HttpMethod.POST, "/api/products/**")
                 .hasRole("ADMIN")
 
                 .requestMatchers(HttpMethod.DELETE, "/api/products/**")
                 .hasRole("ADMIN")
 
-                // Category APIs
+                // Public Category APIs
                 .requestMatchers(HttpMethod.GET, "/api/categories/**")
                 .permitAll()
 
+                // Admin Category APIs
                 .requestMatchers(HttpMethod.POST, "/api/categories/**")
                 .hasRole("ADMIN")
 

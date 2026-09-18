@@ -3,94 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Darvion Styles, considered menswear for every day.">
-    <title>DARVION STYLES | Luxury Menswear</title>
+    <meta name="description" content="DKART modern fashion, curated for every point of view.">
+    <title>DKART | Modern Fashion</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
+    <div class="announcement">Complimentary delivery on orders over ₹2,500 <span>•</span> DKART / AUTUMN 2026</div>
     <header class="site-header">
-        <a class="brand" href="#home" aria-label="Darvion Styles home">
-            <span class="brand-mark">D</span>
-            <span>Darvion <em>Styles</em></span>
-        </a>
+        <a class="brand" href="#home" aria-label="DKART home"><span class="brand-mark">D</span><span>DKART</span></a>
         <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleMenu()">☰</button>
         <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
-            <a class="active" href="#home">Home</a>
-            <a href="#products">Shop</a>
-            <a href="#categories">Categories</a>
-            <a href="#new-arrivals">New Arrivals</a>
-            <a href="#cart" class="nav-cart" aria-label="Shopping cart"><span class="icon icon-bag"></span><span id="cart-count" class="cart-count">0</span></a>
-            <a href="#login" class="nav-profile"><span class="icon icon-user"></span><span>Login</span></a>
+            <a class="active" href="#home">Home</a><a href="#products" onclick="setCategory('men')">Men</a><a href="#products" onclick="setCategory('women')">Women</a><a href="#products" onclick="setCategory('boys')">Boys</a><a href="#products" onclick="setCategory('girls')">Girls</a><a href="#products" onclick="setCategory('baby')">Baby</a><a href="#products" onclick="setCategory('kids')">Kids</a><a href="#new-arrivals" onclick="setCategory('new')">New arrivals</a><a href="#collections">Collections</a><a href="#trending" onclick="setCategory('trending')">Trending</a><a href="#offers" onclick="setCategory('offers')">Offers</a>
+            <a href="#search" class="nav-icon" aria-label="Search" onclick="focusSearch(event)">⌕</a><a href="#products" class="nav-icon" aria-label="Wishlist">♡</a><a href="#cart" class="nav-icon nav-cart" aria-label="Cart">♧<span id="cart-count" class="cart-count">0</span></a><a href="#login" class="nav-icon" aria-label="Account">◎</a>
         </nav>
     </header>
-
     <main>
-        <section id="home" class="hero">
-            <div class="hero-copy">
-                <p class="eyebrow">The signature collection / 2026</p>
-                <h1><i>STYLE</i> THAT<br>DEFINES YOU</h1>
-                <p class="hero-text">Premium fashion for those who define their own style.</p>
-                <div class="hero-actions"><a class="button button-light" href="#products">Shop collection <span>↗</span></a><a class="button button-ghost" href="#categories">Explore <span>↗</span></a></div>
-            </div>
-            <div class="hero-note"><span>01</span><span>Menswear<br>reimagined</span></div>
-        </section>
-
-        <section id="categories" class="section categories-section">
-            <div class="section-heading"><div><p class="eyebrow">Find your uniform</p><h2>Shop by category</h2></div><span class="section-number">01</span></div>
-            <div class="category-grid">
-                <a class="category-card category-tshirts" href="#products" onclick="filterProducts('tshirt')"><span class="category-label">T-SHIRTS <small>Explore</small></span></a>
-                <a class="category-card category-shirts" href="#products" onclick="filterProducts('shirt')"><span class="category-label">SHIRTS <small>Explore</small></span></a>
-                <a class="category-card category-jeans" href="#products" onclick="filterProducts('jeans')"><span class="category-label">JEANS <small>Explore</small></span></a>
-                <a class="category-card category-sneakers" href="#products" onclick="filterProducts('sneakers')"><span class="category-label">SNEAKERS <small>Explore</small></span></a>
-            </div>
-        </section>
-
-        <section id="products" class="section products-section">
-            <div class="section-heading"><div><p class="eyebrow">Curated for you</p><h2>Featured pieces</h2></div><button class="text-button" type="button" onclick="filterProducts('all')">View all <span>↗</span></button></div>
-            <div id="product-list" class="product-grid"><div class="loading-state"><span class="loader"></span><p>Loading the latest collection...</p></div></div>
-        </section>
-
-        <section id="new-arrivals" class="new-arrivals-band">
-            <div class="new-arrivals-copy"><p class="eyebrow">Just landed</p><h2>New arrivals,<br><i>new energy.</i></h2><p>Sharp silhouettes, considered textures, and the details that make the everyday feel exceptional.</p><a class="button button-dark" href="#products">Discover the edit <span>↗</span></a></div>
-            <div class="new-arrivals-image"></div>
-        </section>
-
-        <section class="offer-banner"><div><p class="eyebrow">THE DARVION COLLECTION</p><h2>UP TO 40% OFF</h2><p>Upgrade your everyday style with pieces made to go further.</p></div><a class="button button-light" href="#products">SHOP NOW <span>↗</span></a></section>
-
-        <section class="section benefits-section"><div class="section-heading"><div><p class="eyebrow">The Darvion standard</p><h2>Why Darvion</h2></div><span class="section-number">03</span></div><div class="benefit-grid"><article><span class="benefit-icon">✦</span><h3>Premium quality</h3><p>Thoughtful materials and lasting construction in every piece.</p></article><article><span class="benefit-icon">⌁</span><h3>Fast delivery</h3><p>From our studio to your door, without the long wait.</p></article><article><span class="benefit-icon">◇</span><h3>Secure payments</h3><p>A smooth, protected checkout from start to finish.</p></article><article><span class="benefit-icon">↺</span><h3>Easy returns</h3><p>Take your time. Returns are simple when a fit is not quite right.</p></article></div></section>
-
-        <section class="section products-note-section products-anchor">
-            <div class="section-heading">
-                <div><p class="eyebrow">The complete edit</p><h2>All products</h2></div>
-                <button class="text-button" type="button" onclick="loadProducts()">Refresh collection <span>↗</span></button>
-            </div>
-            <div class="products-note">Your new everyday favorites, all in one place.</div>
-        </section>
-
-        <section id="cart" class="section cart-section">
-            <div class="section-heading"><div><p class="eyebrow">Your selections</p><h2>Shopping bag</h2></div><span class="section-number">02</span></div>
-            <div id="cart-items" class="cart-items"><div class="empty-state"><span class="empty-icon">＋</span><h3>Your bag is waiting</h3><p>Add a few pieces from the collection to see them here.</p><a href="#products" class="text-button">Browse products <span>↗</span></a></div></div>
-        </section>
-
-        <section id="login" class="login-section">
-            <div class="login-intro"><p class="eyebrow">Member access</p><h2>Good style<br>starts here.</h2><p>Sign in to save your picks and keep your Darvion wardrobe close.</p></div>
-            <form class="login-form" onsubmit="event.preventDefault(); loginUser();">
-                <label for="email">Email address</label>
-                <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Your password" autocomplete="current-password">
-                <button class="button button-dark" type="submit">Sign in <span>→</span></button>
-                <p id="login-message" role="status"></p>
-            </form>
-        </section>
-
-        <section class="newsletter-section"><div><p class="eyebrow">JOIN THE DARVION CLUB</p><h2>JOIN THE DARVION CLUB</h2><p>Get exclusive access to new collections and special offers.</p></div><form class="newsletter-form" onsubmit="event.preventDefault(); subscribeNewsletter();"><label class="sr-only" for="newsletter-email">Email address</label><input type="email" id="newsletter-email" placeholder="Your email address" required><button class="button button-dark" type="submit">SUBSCRIBE <span>→</span></button><p id="newsletter-message" role="status"></p></form></section>
+        <section id="home" class="hero"><div class="hero-copy"><p class="eyebrow">DKART / 01 — NEW SEASON</p><h1>Wear your<br><i>own story.</i></h1><p class="hero-text">A modern wardrobe shaped by your point of view. Considered pieces for every version of you.</p><div class="hero-actions"><a class="button button-dark" href="#products">Shop collection <span>↗</span></a><a class="button button-outline" href="#categories">Explore <span>↗</span></a></div></div><div class="hero-side"><span>New / 2026</span><span>01</span></div></section>
+        <section id="categories" class="section category-section"><div class="section-heading"><div><p class="eyebrow">The DKART universe</p><h2>Shop by<br><i>world.</i></h2></div><p class="section-intro">Six distinct points of view,<br>one considered wardrobe.</p></div><div class="category-grid"><button class="category-card category-men" onclick="setCategory('men')"><b>01</b><strong>MEN</strong><small>Sharp / considered</small></button><button class="category-card category-women" onclick="setCategory('women')"><b>02</b><strong>WOMEN</strong><small>Fluid / expressive</small></button><button class="category-card category-boys" onclick="setCategory('boys')"><b>03</b><strong>BOYS</strong><small>Future / fearless</small></button><button class="category-card category-girls" onclick="setCategory('girls')"><b>04</b><strong>GIRLS</strong><small>Bright / bold</small></button><button class="category-card category-baby" onclick="setCategory('baby')"><b>05</b><strong>BABY</strong><small>Soft / essential</small></button><button class="category-card category-kids" onclick="setCategory('kids')"><b>06</b><strong>KIDS</strong><small>Play / evolve</small></button></div></section>
+        <section id="products" class="section products-section"><div class="section-heading"><div><p class="eyebrow">The current edit</p><h2 id="product-title">Pieces with <i>presence.</i></h2></div><button class="text-button" type="button" onclick="setCategory('all')">View all <span>↗</span></button></div><div id="search" class="catalogue-tools"><label class="search-box"><span>⌕</span><input id="product-search" type="search" placeholder="Search the collection" oninput="applyFilters()"></label><select id="price-filter" onchange="applyFilters()"><option value="all">Any price</option><option value="2000">Under ₹2,000</option><option value="5000">Under ₹5,000</option><option value="10000">Under ₹10,000</option></select><button class="filter-reset" type="button" onclick="resetFilters()">Reset ×</button></div><div id="product-grid" class="product-grid"><div class="loading-state"><span class="loader"></span><p>Loading the collection...</p></div></div></section>
+        <section id="new-arrivals" class="feature-band"><div class="feature-copy"><p class="eyebrow">Just landed</p><h2>New arrivals,<br><i>new energy.</i></h2><p>Sharp silhouettes, easy layers, and details that make the everyday feel exceptional.</p><button class="button button-dark" onclick="setCategory('new')">Discover the edit <span>↗</span></button></div><div class="feature-image feature-arrivals"></div></section>
+        <section id="collections" class="section collections-section"><div class="section-heading"><div><p class="eyebrow">Curated worlds</p><h2>Collections with<br><i>a point of view.</i></h2></div><p class="section-intro">Complete moods, composed<br>for the way you move.</p></div><div class="collection-grid"><article class="collection-card collection-essentials"><div><span>01 / DAILY FORM</span><h3>Essentials</h3><p>Quiet foundations for a wardrobe that works harder.</p><button onclick="showCollection('essentials')">View collection ↗</button></div></article><article class="collection-card collection-urban"><div><span>02 / CITY LIFE</span><h3>Urban edit</h3><p>Utility, texture, and a little after-hours energy.</p><button onclick="showCollection('urban')">View collection ↗</button></div></article><article class="collection-card collection-party"><div><span>03 / OCCASION</span><h3>Party edit</h3><p>Make an entrance without saying a word.</p><button onclick="showCollection('party')">View collection ↗</button></div></article></div><div id="collection-showcase" class="collection-showcase"></div></section>
+        <section id="trending" class="section trending-section"><div class="section-heading"><div><p class="eyebrow">The pulse</p><h2>Trending<br><i>now.</i></h2></div><button class="text-button" onclick="setCategory('trending')">View all ↗</button></div><div id="trending-grid" class="product-grid"></div></section>
+        <section id="offers" class="offer-banner"><div><p class="eyebrow">The DKART edit</p><h2>Up to 40% off</h2><p>Selected styles, considered down to the last detail.</p></div><button class="button button-dark" onclick="setCategory('offers')">Shop now <span>↗</span></button></section>
+        <section id="dara-builder" class="dara-spotlight section"><div><p class="eyebrow">ALEXA / AI fashion concierge</p><h2>Your look,<br><i>considered.</i></h2><p>Tell Alexa what you need and let the live collection do the rest.</p><button class="button button-dark" onclick="toggleDara(true)">Open Alexa <span>↗</span></button></div><div class="dara-preview"><span>ALEXA / LIVE</span><strong>Find me a<br>look for tonight.</strong><button onclick="toggleDara(true)">Start styling <span>↗</span></button></div></section>
+        <section class="section benefits-section"><div class="section-heading"><div><p class="eyebrow">The DKART standard</p><h2>Why DKART</h2></div></div><div class="benefit-grid"><article><b>✦</b><h3>Premium quality</h3><p>Thoughtful materials and lasting construction.</p></article><article><b>⌁</b><h3>Fast delivery</h3><p>From our studio to your door, without the long wait.</p></article><article><b>◇</b><h3>Secure payments</h3><p>A smooth, protected checkout every time.</p></article><article><b>↺</b><h3>Easy returns</h3><p>Simple returns when a fit is not quite right.</p></article></div></section>
+        <section id="cart" class="section cart-section"><div class="section-heading"><div><p class="eyebrow">Your selections</p><h2>Shopping bag</h2></div></div><div id="cart-items" class="cart-items"><div class="empty-state"><h3>Your bag is waiting</h3><p>Add a few pieces from the collection to see them here.</p></div></div><div id="cart-summary" class="cart-summary"></div></section>
+        <section id="login" class="login-section"><div><p class="eyebrow">Member access</p><h2>Good style<br><i>starts here.</i></h2><p>Sign in to keep your DKART wardrobe close.</p></div><form class="login-form" onsubmit="event.preventDefault(); loginUser();"><label for="email">Email address</label><input type="email" id="email" placeholder="you@example.com" autocomplete="email"><label for="password">Password</label><input type="password" id="password" placeholder="Your password" autocomplete="current-password"><button class="button button-dark" type="submit">Sign in <span>→</span></button><p id="login-message" role="status"></p></form></section>
+        <section class="newsletter-section"><div><p class="eyebrow">Never miss a drop</p><h2>Stay in style.</h2><p>Get exclusive offers and new arrival updates.</p></div><form class="newsletter-form" onsubmit="event.preventDefault(); subscribeNewsletter();"><label class="sr-only" for="newsletter-email">Email</label><input id="newsletter-email" type="email" placeholder="Your email address" required><button class="button button-dark" type="submit">Subscribe <span>→</span></button><p id="newsletter-message"></p></form></section>
     </main>
-
-    <footer><div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark">D</span><span>Darvion <em>Styles</em></span></a><p>Everyday pieces, elevated.</p><div class="social-links"><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Pinterest">p</a></div></div><div class="footer-column"><h3>Shop</h3><a href="#products">All products</a><a href="#categories">Categories</a><a href="#new-arrivals">New arrivals</a><a href="#products">Best sellers</a></div><div class="footer-column"><h3>Customer support</h3><a href="#login">My account</a><a href="#cart">Shopping bag</a><a href="#">Shipping & delivery</a><a href="#">Returns & exchanges</a></div><div class="footer-column"><h3>About</h3><a href="#">Our story</a><a href="#">Journal</a><a href="#">Contact</a><span>© 2026 Darvion Styles</span></div></footer>
+    <button class="dara-launcher" aria-label="Open Alexa" aria-expanded="false" onclick="toggleDara()"><span>A</span><i></i></button><aside id="dara-panel" class="dara-panel" aria-hidden="true"><div class="dara-panel-inner"><header><div><span class="dara-status"><i></i> AI fashion concierge</span><h2>ALEXA</h2><p id="dara-voice-state">Ready to help</p></div><button onclick="toggleDara(false)" aria-label="Close Alexa">×</button></header><div id="dara-thread" class="dara-thread"><div class="dara-welcome"><span>ALEXA / READY</span><p>Hi, I'm Alexa.<br>Tell me what you're shopping for, where you're going, your style, or your budget. I'll help you build the look.</p></div></div><div class="dara-suggestions"><button onclick="useDaraSuggestion(this)">Build my outfit</button><button onclick="useDaraSuggestion(this)">College farewell look</button><button onclick="useDaraSuggestion(this)">Under ₹2500</button></div><form class="dara-input-wrap" onsubmit="event.preventDefault(); askDara();"><input id="dara-input" placeholder="Message Alexa..."><button class="dara-voice" type="button" onclick="toggleDaraVoice()" aria-label="Use voice">🎙</button><button class="dara-send" type="submit">↗</button></form></div></aside>
+    <div id="product-modal" class="product-modal" aria-hidden="true"><div class="product-modal-card"><button class="modal-close" onclick="closeProductDetails()" aria-label="Close">×</button><div id="product-detail"></div></div></div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div><footer><div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark">D</span><span>DKART</span></a><p>Modern fashion for every point of view.</p><div class="social-links"><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="Pinterest">p</a><a href="#" aria-label="Facebook">f</a></div></div><div><h3>Shop</h3><a href="#products">All products</a><a href="#categories">Categories</a><a href="#new-arrivals">New arrivals</a><a href="#offers">Offers</a></div><div><h3>Customer support</h3><a href="#login">My account</a><a href="#cart">Shopping bag</a><a href="#">Shipping & delivery</a><a href="#">Returns & exchanges</a></div><div><h3>About</h3><a href="#">Our story</a><a href="#dara-builder">Alexa concierge</a><a href="#">Contact</a><span>© 2026 DKART</span></div></footer>
     <script src="script.js"></script>
 </body>
 </html>

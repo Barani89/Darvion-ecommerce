@@ -1,3 +1,4 @@
+
 package com.darvion.ecommerce.entity;
 
 import jakarta.persistence.Entity;
@@ -17,20 +18,14 @@ public class Product {
     private Long id;
 
     private String name;
-
     private String description;
-
     private double price;
-
     private int stock;
-
     private String imageUrl;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
-    private Category category;              
-
-    // Getters and Setters
+    private Category category;
 
     public Long getId() {
         return id;
@@ -72,21 +67,19 @@ public class Product {
         this.stock = stock;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     public Category getCategory() {
-    return category;
-}
+        return category;
+    }
 
-public void setcategory(Category Category) {
-    this.category = Category;
-}
-public String getImageUrl() {
-    return imageUrl;
-}
-
-public void setImageUrl(String imageUrl) {
-    this.imageUrl = imageUrl;
-}
-
-
-
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
