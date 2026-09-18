@@ -1,6 +1,4 @@
-
 package com.darvion.ecommerce.config;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -39,36 +37,45 @@ public class Securityconfig {
                     "/api/users/login"
                 ).permitAll()
 
-                // Public Product APIs
-                .requestMatchers(HttpMethod.GET, "/api/products/**")
-                .permitAll()
+                // Public Product APIs - GET only
+                .requestMatchers(
+                    HttpMethod.GET,
+                    "/api/products/**"
+                ).permitAll()
 
                 // Admin Product APIs
-                .requestMatchers(HttpMethod.POST, "/api/products/**")
-                .hasRole("ADMIN")
-
-                .requestMatchers(HttpMethod.DELETE, "/api/products/**")
-                .hasRole("ADMIN")
-
-                // Public Category APIs
                 .requestMatchers(
-    "/api/users/register",
-    "/api/users/login",
-    "/api/products/**",
-    "/api/categories/**"
-).permitAll()
-.anyRequest().authenticated()
+                    HttpMethod.POST,
+                    "/api/products/**"
+                ).hasRole("ADMIN")
+
+                .requestMatchers(
+                    HttpMethod.DELETE,
+                    "/api/products/**"
+                ).hasRole("ADMIN")
+
+                // Public Category APIs - GET only
+                .requestMatchers(
+                    HttpMethod.GET,
+                    "/api/categories/**"
+                ).permitAll()
 
                 // Admin Category APIs
-                .requestMatchers(HttpMethod.POST, "/api/categories/**")
-                .hasRole("ADMIN")
+                .requestMatchers(
+                    HttpMethod.POST,
+                    "/api/categories/**"
+                ).hasRole("ADMIN")
 
-                .requestMatchers(HttpMethod.DELETE, "/api/categories/**")
-                .hasRole("ADMIN")
+                .requestMatchers(
+                    HttpMethod.DELETE,
+                    "/api/categories/**"
+                ).hasRole("ADMIN")
 
                 // Checkout
-                .requestMatchers(HttpMethod.POST, "/api/orders/checkout/**")
-                .hasAnyRole("USER", "ADMIN")
+                .requestMatchers(
+                    HttpMethod.POST,
+                    "/api/orders/checkout/**"
+                ).hasAnyRole("USER", "ADMIN")
 
                 // Everything else needs authentication
                 .anyRequest().authenticated()
@@ -82,4 +89,4 @@ public class Securityconfig {
         return http.build();
     }
 }
-
+```
