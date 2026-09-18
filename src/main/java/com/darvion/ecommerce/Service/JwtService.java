@@ -1,5 +1,6 @@
 package com.darvion.ecommerce.service;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 import javax.crypto.SecretKey;
@@ -14,11 +15,23 @@ import io.jsonwebtoken.security.Keys;
 @Service
 public class JwtService {
 
-   private final SecretKey secretKey =
-    Keys.hmacShaKeyFor(
-        System.getenv("JWT_SECRET").getBytes()
-    );
-        
+    private static final String DEFAULT_SECRET =
+            "DarvionEcommerceJWTSecretKey2026BaraniSecureKey123456789";
+
+    private final SecretKey secretKey;
+
+    public JwtService() {
+
+        String jwtSecret = System.getenv("JWT_SECRET");
+
+        if (jwtSecret == null || jwtSecret.isBlank()) {
+            jwtSecret = DEFAULT_SECRET;
+        }
+
+        secretKey = Keys.hmacShaKeyFor(
+                jwtSecret.getBytes(StandardCharsets.UTF_8)
+        );
+    }
 
     public String generateToken(User user) {
 
@@ -27,7 +40,10 @@ public class JwtService {
                 .claim("role", user.getRole())
                 .issuedAt(new Date())
                 .expiration(
-                        new Date(System.currentTimeMillis() + 1000 * 60 * 60)
+                        new Date(
+                                System.currentTimeMillis()
+                                        + 1000L * 60 * 60
+                        )
                 )
                 .signWith(secretKey)
                 .compact();
